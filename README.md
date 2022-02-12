@@ -6,7 +6,7 @@
 npx create-next-app@latest <project-name> --typescript
 ```
 
-2. NextJS 에서 page 만들기
+2. pages
 
 - pages 폴더 안에 생성하는 파일이 곧 페이지가 된다.
 - 예를 들어 about.js 파일을 만들어 주면 http://localhost:3000/about 페이지에 해당 파일의 코드가 렌더링된다.
@@ -31,3 +31,8 @@ npx create-next-app@latest <project-name> --typescript
 - 즉 \_app.js 는 하나의 blueprint(청사진)와 같다.
 - app.js는 기본적으로 Component, pageProps를 가진다.
 - styles 폴더의 globals.css는 다른 곳에서는 import가 불가능하고 오직 \_app.js에서만 가능하다.
+
+6. Patterns
+
+- next/Head 에서 Head를 가져와 쓸 수 있다. Seo.js 등의 파일을 통해 원하는 값을 넣어주면 된다.
+- 보통 \_app.js에 많은 코드가 들어가는 것을 좋아하지 않기 때문에 children props를 통해 Layout 등의 컴포넌트로 감싸주게 된다.
