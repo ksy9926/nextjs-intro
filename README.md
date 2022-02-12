@@ -36,3 +36,34 @@ npx create-next-app@latest <project-name> --typescript
 
 - next/Head 에서 Head를 가져와 쓸 수 있다. Seo.js 등의 파일을 통해 원하는 값을 넣어주면 된다.
 - 보통 \_app.js에 많은 코드가 들어가는 것을 좋아하지 않기 때문에 children props를 통해 Layout 등의 컴포넌트로 감싸주게 된다.
+
+7. Redirect
+
+- next.config.js 안에 작성. config 파일을 수정한 경우 다시 재시작해야 적용이 된다.
+- 유저가 source로 들어오면 destination으로 보낸다.
+- :path를 붙이면 해당 path를 그대로 destination에 보낸다. (ex. /contact/30321 -> /form/30321)
+- :path\*를 붙이면 뒤에 오는 모든것을 catch한다. (ex. /contact/123/detail/12 -> /form/123/detail/12)
+- permanent: 브라우저나 검색엔진이 이 정보를 기억하는지 여부 결정
+- 여러개의 redirect를 사용하고 싶다면 배열안에 새로운 객체를 추가하면 된다.
+
+```js
+async redirects() {
+  return [
+    {
+      source: '/contact/:path',
+      destination: '/form/:path',
+      permanent: false
+    }
+  ]
+}
+```
+
+8. Rewrites
+
+- 유저를 redirect 시키긴 하지만 url이 바뀌지는 않는다.
+- API_KEY 등 보안상의 이유로 숨기고 싶은 정보가 있을 때 사용한다.
+
+### 참고
+
+- [영화 API_KEY](https://www.themoviedb.org/)
+- [영화 api](https://developers.themoviedb.org/3/getting-started/introduction)
