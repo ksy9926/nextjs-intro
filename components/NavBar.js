@@ -6,22 +6,40 @@ const NavBar = () => {
 
   return (
     <nav>
-      {/* Link 에는 className, style등이 적용되지 않는다. 단지 웹사이트 리로딩을 막는 용도로 href만 사용을 하며 나머지 모든 속성은 a tag를 통해서 적용한다. */}
-      <Link href='/'>
-        <a className={router.pathname === '/' ? 'active' : ''}>Home</a>
-      </Link>
-      <Link href='/about'>
-        <a className={router.pathname === '/about' ? 'active' : ''}>About</a>
-      </Link>
+      <img src='/vercel.svg' />
+      <div>
+        <Link href='/'>
+          <a className={router.pathname === '/' ? 'active' : ''}>Home</a>
+        </Link>
+        <Link href='/about'>
+          <a className={router.pathname === '/about' ? 'active' : ''}>About</a>
+        </Link>
+      </div>
       <style jsx>{`
         nav {
+          display: flex;
+          gap: 10px;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 20px;
+          padding-bottom: 10px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
           background-color: tomato;
         }
-        a {
-          text-decoration: none;
+        img {
+          max-width: 100px;
+          margin-bottom: 5px;
+        }
+        nav a {
+          font-weight: 600;
+          font-size: 18px;
         }
         .active {
           color: yellow;
+        }
+        nav div {
+          display: flex;
+          gap: 10px;
         }
       `}</style>
     </nav>
