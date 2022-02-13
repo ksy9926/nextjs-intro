@@ -5,6 +5,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Layout>
+        {/* <Home props={results} */}
         <Component {...pageProps} />
       </Layout>
     </>

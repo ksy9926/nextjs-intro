@@ -37,7 +37,7 @@ npx create-next-app@latest <project-name> --typescript
 - next/Head 에서 Head를 가져와 쓸 수 있다. Seo.js 등의 파일을 통해 원하는 값을 넣어주면 된다.
 - 보통 \_app.js에 많은 코드가 들어가는 것을 좋아하지 않기 때문에 children props를 통해 Layout 등의 컴포넌트로 감싸주게 된다.
 
-7. Redirect
+7. Redirects
 
 - next.config.js 안에 작성. config 파일을 수정한 경우 다시 재시작해야 적용이 된다.
 - 유저가 source로 들어오면 destination으로 보낸다.
@@ -62,6 +62,13 @@ async redirects() {
 
 - 유저를 redirect 시키긴 하지만 url이 바뀌지는 않는다.
 - API_KEY 등 보안상의 이유로 숨기고 싶은 정보가 있을 때 사용한다.
+
+9. Server Side Rendering
+
+- 로딩 인디케이터가 있는 경우 처음 가져오는 html에는 데이터가 들어있지 않은 loading 표시가 나올 것이다. 그러나 누군가는 data가 표시된 이후 렌더링을 원할 수 있다. 그럴때는 getServerSideProps라는 함수를 만들어주면 된다(이름 고정). 이 함수 안의 코드는 client쪽이 아니라 server쪽에서만 작동되는 코드이다.
+- 이 함수는 object를 리턴하게 되고 object에는 props라는 key가 들어있다. props에는 원하는 데이터를 아무것이나 넣을 수 있다.
+- props에 넣은 데이터는 컴포넌트의 매개변수란에 넣어주면 된다.
+- 이를 활용하면 API_KEY 등도 rewrites를 쓰지 않아도 server에서 처리할 수 있게 된다.
 
 ### 참고
 
