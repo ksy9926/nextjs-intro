@@ -77,6 +77,35 @@ async redirects() {
 - 그리고 /movies 를 movies 폴더 안에 index.js를 만들어주어 나타나게 할 수도 있다.
 - 만약 /movies/:id 형태의 페이지를 만들고 싶다면 movies 폴더 안에 [id].js 형태의 파일을 만들면 된다. 이때 id는 원하는 값을 아무거나 넣을 수 있다.
 
+11. router push masking
+
+- 새로운 페이지로 navigating을 할 때 `<Link>`태그를 사용하는 것 이외에 router.push()를 사용할 수 있다.
+- 이 때, 원한다면 url을 숨길 수 있는데 두 번째 인자인 as에 해당 url을 보내면 된다. `<Link>`태그에도 마찬가지로 as 속성을 이용해 url을 masking할 수 있다.
+
+```js
+router.push(
+  {
+    pathname: `/movies/${id}`,
+    query: {
+      title,
+    },
+  },
+  `/movies/${id}`
+);
+
+<Link
+  href={{
+    pathname: `/movies/${movie.id}`,
+    query: {
+      title: movie.original_title,
+    },
+  }}
+  as={`/movies/${movie.id}`}
+>
+  <a>{movie.original_title}</a>
+</Link>;
+```
+
 ### 참고
 
 - [영화 API_KEY](https://www.themoviedb.org/)
