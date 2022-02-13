@@ -70,6 +70,13 @@ async redirects() {
 - props에 넣은 데이터는 컴포넌트의 매개변수란에 넣어주면 된다.
 - 이를 활용하면 API_KEY 등도 rewrites를 쓰지 않아도 server에서 처리할 수 있게 된다.
 
+10. Dynamic Routes
+
+- 만약 /movies 라는 페이지를 만들고 싶다면 pages 안에 movies.js 라는 파일을 만들어주면 된다.
+- 만약 /movies/all 이라는 페이지를 만들고 싶은 경우에는 pages 안에 movies 라는 폴더를 만들고 movies 폴더 안에 all.js 라는 파일을 만들어주면 된다.
+- 그리고 /movies 를 movies 폴더 안에 index.js를 만들어주어 나타나게 할 수도 있다.
+- 만약 /movies/:id 형태의 페이지를 만들고 싶다면 movies 폴더 안에 [id].js 형태의 파일을 만들면 된다. 이때 id는 원하는 값을 아무거나 넣을 수 있다.
+
 ### 참고
 
 - [영화 API_KEY](https://www.themoviedb.org/)
