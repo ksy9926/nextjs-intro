@@ -76,6 +76,7 @@ async redirects() {
 - 만약 /movies/all 이라는 페이지를 만들고 싶은 경우에는 pages 안에 movies 라는 폴더를 만들고 movies 폴더 안에 all.js 라는 파일을 만들어주면 된다.
 - 그리고 /movies 를 movies 폴더 안에 index.js를 만들어주어 나타나게 할 수도 있다.
 - 만약 /movies/:id 형태의 페이지를 만들고 싶다면 movies 폴더 안에 [id].js 형태의 파일을 만들면 된다. 이때 id는 원하는 값을 아무거나 넣을 수 있다.
+- 만약 /:id 를 포함하는 모든 url을 catch하고 싶다면 [...id].js 형태의 파일을 만들면 된다. 이 경우 id는 이름이 조금 부적절 할 수 있으므로 [...params].js 등의 이름을 써주면 된다.
 
 11. router push masking
 
