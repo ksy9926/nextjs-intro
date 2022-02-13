@@ -107,6 +107,10 @@ router.push(
 </Link>;
 ```
 
+12. 404 page
+
+- 404 page를 만들 때는 pages 폴더에 404.js 파일을 만들어주기만 하면 된다.
+
 ### 참고
 
 - [영화 API_KEY](https://www.themoviedb.org/)
